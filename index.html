@@ -20,14 +20,23 @@
     <header class="site-header" id="top">
       <nav class="top-nav">
         <a href="#top" class="brand" aria-label="Muhammad Abdullah home">MA</a>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#highlights">Highlights</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <a class="nav-button" href="CV-Muhammad_Abdullah.docx" target="_blank" rel="noopener noreferrer">Download CV</a>
+
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-panel">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#highlights">Highlights</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <a class="nav-button" href="CV-Muhammad_Abdullah.docx" target="_blank" rel="noopener noreferrer">Download CV</a>
+        </div>
       </nav>
     </header>
 
@@ -247,5 +256,61 @@
         <p class="copyright">© 2026 Muhammad Abdullah</p>
       </div>
     </footer>
+
+    <script>
+      const revealItems = document.querySelectorAll('.content-section, .hero, .stats-strip, .site-footer');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navPanel = document.querySelector('.nav-panel');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealItems.forEach((item) => {
+        item.classList.add('reveal');
+        observer.observe(item);
+      });
+
+      document.querySelectorAll('.project-card, .skill-category, .about-card, .gallery-item, .stats-strip > div').forEach((item) => {
+        item.classList.add('reveal');
+        observer.observe(item);
+      });
+
+      if (menuToggle && navPanel) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = navPanel.classList.toggle('is-open');
+          menuToggle.classList.toggle('is-open', isOpen);
+          menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        navPanel.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            navPanel.classList.remove('is-open');
+            menuToggle.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      document.querySelectorAll('.project-card, .skill-category, .about-card, .gallery-item').forEach((card) => {
+        card.addEventListener('mousemove', (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width - 0.5) * 10;
+          const y = ((event.clientY - rect.top) / rect.height - 0.5) * 10;
+          card.style.transform = `translateY(-4px) rotateX(${(-y).toFixed(2)}deg) rotateY(${x.toFixed(2)}deg) scale(1.01)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    </script>
   </body>
 </html>
