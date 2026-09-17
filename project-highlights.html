@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Highlights - Abdullah Khalil</title>
+
+    <link rel="stylesheet" href="styles.css"> 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="project-highlights.html">Project Highlights</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="github.html">GitHub</a></li>
+                <li><a href="login.html">Login/Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-section">
+            <h2>Visual Project Highlights</h2>
+            <div class="text-content" style="text-align: center; margin-bottom: 40px;">
+                <p>
+                    A curated gallery showcasing snapshots and key UI elements from my latest work. Click through to see the design and implementation quality.
+                </p>
+            </div>
+
+            <div class="project-slider-container">
+                <div class="project-slider">
+                    <div><img src="Screenshot 2025-10-15 144143.png" alt="iCoder Sign-up Page Screenshot"></div>
+                    <div><img src="Screenshot 2025-07-09 141239.png" alt="iCoder Footer/Newsletter Section Screenshot"></div>
+                    <div><img src="Screenshot 2025-10-15 144005.png" alt="Webflow Get Started Section 1 Screenshot"></div>
+                    <div><img src="Screenshot 2025-10-15 144124.png" alt="Webflow Get Started Section 2 Screenshot"></div>
+                    <div><img src="project ai resume .png" alt="AI Resume Analyzer project screenshot"></div>
+                    <div><img src="Screenshot 2025-07-08 152722.png" alt="Webflow Site Footer Links Screenshot"></div>
+                </div>
+            </div>
+
+            <div class="text-content" style="margin-top: 60px; text-align: center;">
+                <p>
+                    *Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.* The visual fidelity and responsiveness are key metrics for all my work.
+                </p>
+            </div>
+        </section>
+    </main>
+
+     <footer id="contact">
+        <h2>Let's Connect</h2>
+        <p>I'm currently looking for new opportunities. Feel free to reach out!</p>
+        <p class="contact-info">
+            Email: <a href="mailto:muhammadabdullah18681@gmail.com">muhammadabdullah18681@gmail.com</a>
+        </p>
+        <p class="copyright">
+            &copy; <span id="year"> Muhammad Abdullah</span>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.project-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 3000
+            });
+        });
+    </script>
+</body>
+</html>
